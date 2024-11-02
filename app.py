@@ -8,10 +8,10 @@ app=Flask(__name__)
 app.secret_key = binascii.hexlify(os.urandom(24)).decode() #Needed for flash messages
 
 db_config = {
-'host': 'db-instance-commerce.cfwim48wwhiq.ap-south-1.rds.amazonaws.com', #Your RDS endpoint
+'host': 'freshdb-1.cza66aqeqs40.us-east-1.rds.amazonaws.com', #Your RDS endpoint
 'user': 'admin', #Your DB username
 'password': 'freshbasket', #Your DB password
-'database' : 'freshdb'
+'database' : 'fresh'
 }
 
 
