@@ -45,7 +45,7 @@ def register():
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute(
-        'INSERT INTO users (name, mobile, email, password, address) VALUES (%s, %s, %s, %s, %s)'
+        'INSERT INTO users (name, mobile, email, password, address) VALUES (%s, %s, %s, %s, %s)',
         (name, mobile, email, password, default_address))
         conn.commit()
         cursor.close()
@@ -145,15 +145,15 @@ def place_order():
         conn = get_db_connection()
         cursor = conn.cursor()
         cursor.execute(
-        "INSERT INTO orders (user_id, delivery_address, payment_method, status, order date, total_price) "
+        "INSERT INTO orders (user_id, delivery_address, payment_method, status, order date, total_price)",
         "VALUES (%s, %s, %s, %s, %s, %s)",
         (session['user_id'], delivery_address, payment_method, 'Yet to Ship', datetime.now(), total_price)
         )
         order_id = cursor.lastrowid
         for item in items:
             cursor.execute(
-            'INSERT INTO order_items (order_id, item_name, quantity, price)'
-            'VALUES (%s, %s, %s, %5)'
+            'INSERT INTO order_items (order_id, item_name, quantity, price)',
+            'VALUES (%s, %s, %s, %5)',
             (order_id, item['name']), item['quantity'], item['price']
             )
             
