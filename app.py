@@ -219,5 +219,5 @@ def admin_dashboard():
     return render_template('admin_dashboard.html', orders=orders)
 
 
-if _name__ == '_main__':
+if __name__ == '__main__':
     app.run(debug=True)
